@@ -8,4 +8,6 @@ Once application is up and running, point your browser to:
 
 http://localhost:8080/index.html
 
+To generate the standalone executable JAR file, run the following from the command line:
 
+./mvn clean package
