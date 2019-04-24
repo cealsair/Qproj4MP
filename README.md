@@ -24,7 +24,10 @@ java -jar target/demo-1.0-SNAPSHOT-runner.jar
 
 ### Compiling to native
 
-To compile the project to native code, run the following from the command line:
+To compile the project to native code, you need to have the [GraalVM](https://github.com/oracle/graal/releases) installed
+and a GRAALVM_HOME environment variable set to the location of the GraalVM home.
+
+Once you have GraalVM install, build the native executable by running the following from the command line:
 
 ./mvnw package -Pnative
 
