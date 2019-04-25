@@ -20,7 +20,7 @@ To generate the standalone executable JAR file, run the following from the comma
 
 Once the build is finished, to run the jar, enter:
 
-java -jar target/demo-1.0-SNAPSHOT-runner.jar
+java -jar target/demo-runner.jar
 
 ### Compiling to native
 
@@ -33,4 +33,21 @@ Once you have GraalVM install, build the native executable by running the follow
 
 Once the compilation is finished, to run the executable, enter:
 
-./target/demo-1.0-SNAPSHOT-runner -Dinjected.value="hi" -Dvalue="hola"
+./target/demo-runner -Dinjected.value="hi" -Dvalue="hola"
+
+## Testing the Endpoints
+
+### ServiceHealthCheck
+curl http://10.0.0.225:8080/health; echo
+
+### ConfigTestController
+curl http://10.0.0.225:8080/data/config/injected; echo
+curl http://10.0.0.225:8080/data/config/lookup; echo
+
+### HelloController
+curl http://10.0.0.225:8080/data/hello; echo
+
+### ProtectedController
+
+### MetricController
+curl http://10.0.0.225:8080/metrics; echo

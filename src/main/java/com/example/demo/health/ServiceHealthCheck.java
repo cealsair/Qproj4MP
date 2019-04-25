@@ -12,8 +12,11 @@ public class ServiceHealthCheck implements HealthCheck {
 
     @Override
     public HealthCheckResponse call() {
-
-        return HealthCheckResponse.named(ServiceHealthCheck.class.getSimpleName()).up().build();
-
+        return HealthCheckResponse.named("service-check")
+                .withData("port", 12345)
+                .withData("isSecure", true)
+                .withData("hostname", "service.jboss.com")
+                .up()
+                .build();
     }
 }

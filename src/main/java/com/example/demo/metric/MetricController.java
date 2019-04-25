@@ -11,22 +11,23 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Random;
 
 @Path("/metric")
-//@RequestScoped
 @ApplicationScoped //Required for @Gauge
 public class MetricController {
 
     @Inject
     @Metric(name = "endpoint_counter")
-
     private Counter counter;
 
     @Path("timed")
     @Timed(name = "timed-request")
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public String timedRequest() {
         // Demo, not production style
         int wait = new Random().nextInt(1000);
@@ -37,12 +38,14 @@ public class MetricController {
             e.printStackTrace();
         }
 
+        getCustomerCount();
         return "Request is used in statistics, check with the Metrics call.";
     }
 
 
     @Path("increment")
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public long doIncrement() {
         counter.inc();
         return counter.getCount();
