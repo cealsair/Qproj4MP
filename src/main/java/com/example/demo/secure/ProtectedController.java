@@ -21,7 +21,7 @@ public class ProtectedController {
     private ClaimValue<String> custom;
 
     @GET
-    @RolesAllowed("protected")
+    @RolesAllowed("user")
     public String getJWTBasedValue() {
         return "Protected Resource; Custom value : " + custom.getValue();
     }
