@@ -8,13 +8,13 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.opentracing.Traced;
 
-@Traced
 @ApplicationScoped
 @Path("/traced")
 public class TracedEndpoint {
     @GET
     @Path("/randomDelay")
     @Produces(MediaType.TEXT_PLAIN)
+    @Traced(operationName = "TracedEndpoint#demoRandomDelay")
     public String randomDelay() {
         long start = System.currentTimeMillis();
         // 0-5 seconds random sleep
@@ -26,5 +26,13 @@ public class TracedEndpoint {
         }
         long end = System.currentTimeMillis();
         return String.format("TracedEndpoint.randomDelay, elapsed=%d", (end - start));
+    }
+
+    @GET
+    @Path("/untraced")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Traced(false)
+    public String untraced() {
+        return "No tracing";
     }
 }
