@@ -3,6 +3,7 @@ package com.example.demo;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.auth.LoginConfig;
+import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
@@ -28,11 +29,13 @@ import javax.ws.rs.core.Application;
                     email = "quarkus-dev+subscribe@googlegroups.com"),
             license = @License(
                     name = "Apache 2.0",
-                    url = "http://www.apache.org/licenses/LICENSE-2.0.html")),
-        servers = {
+                    url = "http://www.apache.org/licenses/LICENSE-2.0.html")
+    ),
+    servers = {
                 @Server(url = "http://localhost:8080/", description = "demo1 host"),
                 @Server(url = "http://localhost:8081/", description = "demo2 host")
-    }
+        },
+    externalDocs = @ExternalDocumentation(url="http://microprofile.io", description = "Eclipse MicroProfile Homepage")
 )
 public class DemoRestApplication extends Application {
     void onStart(@Observes StartupEvent event) {
