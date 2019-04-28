@@ -104,10 +104,10 @@ console.log("loginChange, %o", radio);
 
 /**
 */
-function secureRequest(base, path) {
+function secureRequest(port, path) {
     var oReq = new XMLHttpRequest();
-    var url = base + path;
-    console.log("secureRequest, base=%s, path=%s", base, path);
+    var url = "http://" + location.hostname +":"+port+"/" + path;
+    console.log("secureRequest, hostname=%s, base=%s, path=%s, url=%s", location.hostname, port, path, url);
     oReq.open('GET', url, true);
     oReq.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
     oReq.onload = function () {

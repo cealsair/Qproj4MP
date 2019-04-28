@@ -68,7 +68,7 @@
           <h2>Demo1 Health Status</h2>
           <a href="health" target="reply-content">Demo1 health status</a> <br/>
           <h2>Demo2 Health Status</h2>
-          <a href="http://localhost:8081/health" target="reply-content">Demo2 health status</a> <br/>
+          <a href="health" onclick="javascript:event.target.port=8081" target="reply-content">Demo2 health status</a> <br/>
         </div>
         <div class="tab-pane fade" id="v-pills-metrics" role="tabpanel" aria-labelledby="v-pills-metrics-tab">
           <a href="demo1/metric/timed" target="reply-content">Timed endpoint</a> <br/>
@@ -81,7 +81,8 @@
           <h2>Jaegar UI</h2>
           <a href="demo1/traced/randomDelay" target="reply-content">demo1/traced/randomDelay</a><br/>
           <h2>Jaegar UI</h2>
-          <a href="http://localhost:16686/">http://localhost:16686/</a>
+          <!-- -->
+          <a href="#" onclick="javascript:event.target.port=16686">http://localhost:16686/</a>
         </div>
         <div class="tab-pane fade" id="v-pills-openapi" role="tabpanel" aria-labelledby="v-pills-openapi-tab">
           <h2>Open API Document</h2>
@@ -94,9 +95,9 @@
           <h2>RestClient access WorldClockApi</h2>
           <a href="demo1/time/now" target="reply-content">demo1/time/now</a> <br/>
           <h2>RestClient WorldClockApi Service on Demo2</h2>
-          <button onclick="secureRequest('http://localhost:8081/', 'demo2/time/userNow')" class="btn btn-primary">demo2/time/userNow</button> Using Authentication: Bearer MP-JWT token...<br/>
+          <button onclick="secureRequest('8081', 'demo2/time/userNow')" class="btn btn-primary">demo2/time/userNow</button> Using Authentication: Bearer MP-JWT token...<br/>
           <h2>RestClient proxy to WorldClockApi Service on Demo2</h2>
-          <button onclick="secureRequest('http://localhost:8080/', 'demo1/time/proxyUserTZ')" class="btn btn-primary">demo1/time/proxyUserTZ</button> Using Authentication: Bearer MP-JWT token...<br/>
+          <button onclick="secureRequest('8080', 'demo1/time/proxyUserTZ')" class="btn btn-primary">demo1/time/proxyUserTZ</button> Using Authentication: Bearer MP-JWT token...<br/>
         </div>
         <div class="tab-pane fade" id="v-pills-fault" role="tabpanel" aria-labelledby="v-pills-fault-tab">
           <a href="demo1/resilience" target="reply-content">Fallback after timeout</a> <br/>
@@ -105,7 +106,7 @@
           <h2>Access Endpoint Without JWT</h2>
           <a href="demo1/jwt/openHello" target="reply-content">demo1/jwt/openHello</a> <br/>
           <h2>Access Endpoint With JWT</h2>
-          <button onclick="secureRequest('http://localhost:8080/', 'demo1/jwt/secureHello')" class="btn btn-primary">demo1/jwt/secureHello</button> Using Authentication: Bearer MP-JWT token...<br/>
+          <button onclick="secureRequest('8080', 'demo1/jwt/secureHello')" class="btn btn-primary">demo1/jwt/secureHello</button> Using Authentication: Bearer MP-JWT token...<br/>
         </div>
         <div class="tab-pane fade" id="v-pills-keycloak" role="tabpanel" aria-labelledby="v-pills-keycloak-tab">
 
