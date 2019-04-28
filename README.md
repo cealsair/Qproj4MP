@@ -1,6 +1,20 @@
 # Qproj4MP
 
-## Quarking a generated MicroProfile projec
+## Quarking a generated MicroProfile project
+
+This is a demonstration project that consists of 2 projects illustrating MicroProfile 2.2 features.
+This project depends on KeyCloak for the MP-JWT token generation. To launch Keycloak in a docker
+container run:
+
+```bash
+docker run -d --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8180 -v `pwd`/quarkus-kc-quickstart.json:/config/demo-realm.json -it jboss/keycloak:6.0.1 -b 0.0.0.0 -Djboss.http.port=8180 -Dkeycloak.migration.action=import -Dkeycloak.migration.provider=singleFile -Dkeycloak.migration.file=/config/quarkus-kc-quickstart.json -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+```
+
+This project depends on Jaeger for the collection of the MP OpenTracing information. To launch
+the Jaeger tracing system in a docker container run: 
+```bash
+docker run -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 -p 9411:9411 jaegertracing/all-in-one:latest
+```
 
 Note: The contents of the src directory of this project came from generating an MP 2.1 project for Thorntail V2 using the [MicroProfile Starter](https://start.microprofile.io).
 
@@ -36,18 +50,4 @@ Once the compilation is finished, to run the executable, enter:
 ./target/demo-runner -Dinjected.value="hi" -Dvalue="hola"
 
 ## Testing the Endpoints
-
-### ServiceHealthCheck
-curl http://10.0.0.225:8080/health; echo
-
-### ConfigTestController
-curl http://10.0.0.225:8080/data/config/injected; echo
-curl http://10.0.0.225:8080/data/config/lookup; echo
-
-### HelloController
-curl http://10.0.0.225:8080/data/hello; echo
-
-### ProtectedController
-
-### MetricController
-curl http://10.0.0.225:8080/metrics; echo
+Use the tabs in the web app to access the URLs for the various services.
