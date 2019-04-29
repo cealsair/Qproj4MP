@@ -11,7 +11,8 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("/time")
 @ApplicationScoped
-public class TimeService {
+public class
+TimeService {
     @Inject
     @RestClient
     WorldClockApi clockApi;

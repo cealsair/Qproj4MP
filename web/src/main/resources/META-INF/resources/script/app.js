@@ -124,9 +124,11 @@ function secureRequest(port, path) {
 
 keycloak.init(initOptions).success(function(authenticated) {
    authorization = new KeycloakAuthorization(keycloak);
+   /*
    document.getElementById('refreshToken').innerHTML = JSON.stringify(keycloak.refreshTokenParsed, null, 4);
    document.getElementById('idToken').innerHTML = JSON.stringify(keycloak.idTokenParsed,null, 4);
-   document.getElementById('token').innerHTML = JSON.stringify(keycloak.tokenParsed,null, 4); 
+   */
+   document.getElementById('token').innerHTML = JSON.stringify(keycloak.tokenParsed,null, 4);
    document.getElementById('token64').innerHTML = keycloak.token;
    output('Init Success (' + (authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
    var fiveMinutes = Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000);

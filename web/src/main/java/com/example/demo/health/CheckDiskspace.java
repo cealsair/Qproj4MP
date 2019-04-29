@@ -34,8 +34,15 @@ public class CheckDiskspace implements HealthCheck {
         File root = new File(pathToMonitor);
         long usableSpace = root.getUsableSpace();
         long freeSpace = root.getFreeSpace();
-        builder.withData("usableSpace", usableSpace)
+        long pctFree = 0;
+        if (usableSpace > 0) {
+            pctFree = (100 * usableSpace) / freeSpace;
+        }
+        builder.withData("path", root.getAbsolutePath())
+                .withData("exits", root.exists())
+                .withData("usableSpace", usableSpace)
                 .withData("freeSpace", freeSpace)
+                .withData("pctFree", pctFree)
                 .state(freeSpace >= freeSpaceThreshold);
     }
 }

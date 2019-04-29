@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,6 +21,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 @Path("/jwt")
 @DenyAll
+@RequestScoped
 public class JwtEndpoint {
     @Inject
     private JsonWebToken jwt;

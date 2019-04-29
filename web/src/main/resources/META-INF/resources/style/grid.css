@@ -19,7 +19,7 @@
 .wrapper {
      display: grid;
      height:75%;
-     grid-template-columns: 300px 400px 350px;
+     grid-template-columns: 600px 400px 350px;
      grid-gap: 10px;
      grid-auto-rows: auto;
      overflow-y: scroll;

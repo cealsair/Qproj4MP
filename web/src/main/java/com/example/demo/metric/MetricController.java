@@ -6,7 +6,6 @@ import org.eclipse.microprofile.metrics.annotation.Gauge;
 import org.eclipse.microprofile.metrics.annotation.Metric;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 
-//import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -29,6 +28,7 @@ public class MetricController {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String timedRequest() {
+        long start = System.currentTimeMillis();
         // Demo, not production style
         int wait = new Random().nextInt(1000);
         try {
@@ -37,9 +37,11 @@ public class MetricController {
             // Demo
             e.printStackTrace();
         }
+        long end = System.currentTimeMillis();
+        long delay = end - start;
 
-        getCustomerCount();
-        return "Request is used in statistics, check with the Metrics call.";
+        long count = getCustomerCount();
+        return String.format("MetricController#timedRequest, delay=%d, count=%d", delay, count);
     }
 
 

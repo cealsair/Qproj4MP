@@ -82,7 +82,7 @@
           <a href="demo1/traced/randomDelay" target="reply-content">demo1/traced/randomDelay</a><br/>
           <h2>Jaegar UI</h2>
           <!-- -->
-          <a href="#" onclick="javascript:event.target.port=16686">http://localhost:16686/</a>
+          <a href="#" target="_blank" onclick="javascript:event.target.port=16686">http://localhost:16686/</a>
         </div>
         <div class="tab-pane fade" id="v-pills-openapi" role="tabpanel" aria-labelledby="v-pills-openapi-tab">
           <h2>Open API Document</h2>
@@ -141,14 +141,16 @@
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                       <div class="wrapper">
+                        <!--
                         <div class="one"> Refresh Token
                           <pre id="refreshToken" class="prettyprint"></pre>
                         </div>
                         <div class="two">IDToken
                           <pre id="idToken" class="prettyprint"></pre>
                         </div>
-                        <div class="three">Access Token
-                          <pre id="token" class="prettyprint"></pre>
+                        -->
+                        <div class="one">Access Token
+                          <pre id="token" class="prettyprint .pre-scrollable"></pre>
                         </div>
 
                       </div>
