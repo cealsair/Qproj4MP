@@ -41,7 +41,7 @@ public class MetricController {
         long delay = end - start;
 
         long count = getCustomerCount();
-        return String.format("MetricController#timedRequest, delay=%d, count=%d", delay, count);
+        return String.format("MetricController#timedRequest, delay[0-1000]=%d, count=%d", delay, count);
     }
 
 

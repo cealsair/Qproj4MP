@@ -25,7 +25,7 @@ public class TracedEndpoint {
             e.printStackTrace();
         }
         long end = System.currentTimeMillis();
-        return String.format("TracedEndpoint.randomDelay, elapsed=%d", (end - start));
+        return String.format("TracedEndpoint.randomDelay[0-5000], elapsed=%d", (end - start));
     }
 
     @GET

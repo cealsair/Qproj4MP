@@ -45,6 +45,6 @@ public class ConfigTestController {
     public String getLookupConfigValue() {
         Config config = ConfigProvider.getConfig();
         String value = config.getValue("lookup.value", String.class);
-        return String.format("Config value via API lookup: '%s'", injectedValue);
+        return String.format("Config value via API lookup: '%s'", value);
     }
 }

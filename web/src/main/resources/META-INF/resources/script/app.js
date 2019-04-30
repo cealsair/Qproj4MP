@@ -114,7 +114,9 @@ function secureRequest(port, path) {
       console.log("secureRequest.onLoad, %o", oReq);
         if (oReq.readyState === oReq.DONE) {
             if (oReq.status === 200) {
-                document.getElementById('reply-content').contentWindow.document.write(oReq.responseText);
+            var contentWindow = document.getElementById('reply-content').contentWindow;
+                contentWindow.document.write("<br>\n");
+                contentWindow.document.write(oReq.responseText);
             }
         }
     };
