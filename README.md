@@ -1,6 +1,6 @@
 # Qproj4MP
 
-## Quarking a generated MicroProfile projec
+## Quarking a generated MicroProfile project
 
 Note: The contents of the src directory of this project came from generating an MP 2.1 project for Thorntail V2 using the [MicroProfile Starter](https://start.microprofile.io). Once you unzip the generated source code by MicroProfile Starter, make sure to copy index.html from the generated source code to the directory src/main/resources/META-INF/resources in your destination directory where you will be quarking the project.
 
